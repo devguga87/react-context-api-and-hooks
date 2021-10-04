@@ -1,9 +1,19 @@
+import { useEffect, useState } from 'react';
+import { Button } from '../../components/Button';
+import { Heading } from '../../components/Heading';
+import { useCounterContext } from '../../contexts/CounterContext';
 import './styles.css';
 
 export const Home = () => {
+  const [state, actions] = useCounterContext();
+
   return (
     <div>
-      <h1>Oi</h1>
+      <Heading />
+
+      <div>
+        <Button onButtonClick={() => actions.increase()}>Increase</Button>
+      </div>
     </div>
   );
 };
